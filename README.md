@@ -5,6 +5,6 @@ In this example you'll see how simple and flexible can be app development. I tri
 ## Build
 Project contains `ant` script, which will compile debug application using **mxmlc**. All you need is to set `FLEX_HOME` variable in your environment and launch
 
-	awesome:RL2SimpleApplication zaynutdinov$ ant build
+	ant build
 	
 Feel free to contact me through [issues](https://github.com/actionsmile/robotlegs-demo-helloworld/issues) section.
