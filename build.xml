@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="RL2SimpleApplication" basedir="." default="build">
+	<!-- set up a prefix for all environment variables -->
+	<property environment="env." />
+	<!-- load user properties to override defaults -->
+	<property file="user.properties" />
+	<!-- System environment must contain FLEX_HOME variable that points to Flex SDK -->
+	<property name="FLEX_HOME" location="${env.FLEX_HOME}" />
+	<!-- identify properties file -->
+	<property file="build.properties" />
+
+	<taskdef resource="flexTasks.tasks" classpath="${lib.loc}/flexTasks.jar" />
+
+	<target name="build">
+		<mxmlc file="${main.src.loc}/${package.dir}/${project.name}.as" output="${bin.loc}/${project.name}.swf">
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml" />
+			<source-path path-element="${main.src.loc}" />
+			<compiler.library-path dir="${lib.loc}">
+				<include name="*.swc" />
+			</compiler.library-path>
+			<compiler.debug>true</compiler.debug>
+			<default-size width="500" height="600" />
+		</mxmlc>
+	</target>
+
+</project>
