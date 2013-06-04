@@ -20,9 +20,6 @@
  * THE SOFTWARE.
  */
 package robotlegs.bender.demos.simpleapp.controller.appconfig {
-	import me.scriptor.mvc.model.api.IApplicationModel;
-	import me.scriptor.mvc.model.impl.ApplicationModel;
-
 	import robotlegs.bender.demos.simpleapp.controller.DebugSimpleViewMediator;
 	import robotlegs.bender.demos.simpleapp.controller.SimpleViewMediator;
 	import robotlegs.bender.demos.simpleapp.controller.commands.InitStageOptions;
@@ -30,6 +27,8 @@ package robotlegs.bender.demos.simpleapp.controller.appconfig {
 	import robotlegs.bender.demos.simpleapp.controller.commands.guards.OnlyIfDebugVersionLaunched;
 	import robotlegs.bender.demos.simpleapp.controller.commands.hooks.CreateBubbleHash;
 	import robotlegs.bender.demos.simpleapp.events.DemoAppEvent;
+	import robotlegs.bender.demos.simpleapp.model.api.IApplicationModel;
+	import robotlegs.bender.demos.simpleapp.model.impl.ApplicationModel;
 	import robotlegs.bender.demos.simpleapp.view.api.ISimpleView;
 	import robotlegs.bender.extensions.contextView.ContextView;
 	import robotlegs.bender.extensions.eventCommandMap.api.IEventCommandMap;
@@ -93,9 +92,9 @@ package robotlegs.bender.demos.simpleapp.controller.appconfig {
 			// Also, you can use named injections. If you pass 'name' for mapping class, you'll be able
 			// to access mapped value by named injection. See usage example in <code>InitStageOptions</code> command class
 			this.context.injector.map(Stage, "applicationStage").toValue(this.contextView.view.stage);
-			
+
 			// Now, when <code>stage</code> object is mapped, we can handle stage initializtion.
-			// Otherwise, we'll get a 'missing a mapping' error, thrown by <code>Injector</code> 
+			// Otherwise, we'll get a 'missing a mapping' error, thrown by <code>Injector</code>
 			// Initializing <code>Stage</code> object. We need to do it just once
 			this.commandMap.map(DemoAppEvent.INIT_STAGE).toCommand(InitStageOptions).once();
 		}

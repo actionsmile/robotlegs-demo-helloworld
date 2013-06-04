@@ -1,5 +1,5 @@
 package robotlegs.bender.demos.simpleapp {
-	import robotlegs.bender.bundles.DemoBundle;
+	import robotlegs.bender.bundles.mvcs.MVCSBundle;
 	import robotlegs.bender.demos.simpleapp.controller.appconfig.SimpleAppLaunch;
 	import robotlegs.bender.demos.simpleapp.controller.appconfig.SimpleAppPrepare;
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -7,7 +7,6 @@ package robotlegs.bender.demos.simpleapp {
 	import robotlegs.bender.framework.impl.Context;
 
 	import flash.display.Sprite;
-	import flash.events.Event;
 
 	public class RL2SimpleApplication extends Sprite {
 		/**
@@ -20,38 +19,13 @@ package robotlegs.bender.demos.simpleapp {
 		private var appHolder : Sprite;
 
 		public function RL2SimpleApplication() {
-			this.stage ? this.init() : this.waitForStage();
-		}
-		
-		/**
-		 * @private application initialization
-		 * @return void
-		 */
-		private function init() : void {
 			this.appHolder = new Sprite();
 			this.context = new	Context().
-								install(DemoBundle).
-								configure(new ContextView(this.appHolder), SimpleAppPrepare).
-								afterInitializing(this.onContextInitedHandler);
+							install(MVCSBundle).
+							configure(new ContextView(this.appHolder), SimpleAppPrepare).
+							afterInitializing(this.onContextInitedHandler);
 			this.context.initialized && this.onContextInitedHandler();
 			this.addChild(this.appHolder);
-		}
-		
-		/**
-		 * @private waiting for stage
-		 * @return void
-		 */
-		private function waitForStage() : void {
-			this.addEventListener(Event.ADDED_TO_STAGE, this.onStageAppearHandler);
-		}
-		
-		//	Handlers
-		/**
-		 * @eventType flash.events.Event.ADDED_TO_STAGE
-		 */
-		private function onStageAppearHandler(event : Event) : void {
-			this.removeEventListener(Event.ADDED_TO_STAGE, this.onStageAppearHandler);
-			this.init();
 		}
 
 		/**

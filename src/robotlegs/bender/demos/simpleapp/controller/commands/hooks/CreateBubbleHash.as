@@ -20,9 +20,8 @@
  * THE SOFTWARE.
  */
 package robotlegs.bender.demos.simpleapp.controller.commands.hooks {
-	import me.scriptor.mvc.model.api.IApplicationModel;
-
 	import robotlegs.bender.demos.simpleapp.model.ExampleVariables;
+	import robotlegs.bender.demos.simpleapp.model.api.IApplicationModel;
 	import robotlegs.bender.framework.api.IHook;
 
 	import flash.utils.Dictionary;

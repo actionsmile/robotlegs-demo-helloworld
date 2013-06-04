@@ -4,7 +4,7 @@
 // NOTICE: You are permitted to use, modify, and distribute this file
 // in accordance with the terms of the license agreement accompanying it.
 // ------------------------------------------------------------------------------
-package me.scriptor.mvc.model.api {
+package robotlegs.bender.demos.simpleapp.model.api {
 	/**
 	 * @playerversion			Adobe Flashplayer 11.1 or higher
 	 * @langversion				Actionscript 3.0
@@ -18,24 +18,21 @@ package me.scriptor.mvc.model.api {
 		 * @return void
 		 */
 		function setVariable(variableName : String, value : *) : void;
-		
+
 		/**
 		 * Returns varible value by name
 		 * @param variableName name of the varibale
 		 * @return value for <code>variableName</code>
 		 */
 		function getVariable(variableName : String) : *;
-		
+
 		/**
 		 * Removes varibale from model by name
 		 * @param variableName name of the varibale
 		 * @return <code>true</code>, if removing was successful
 		 */
 		function removeVariable(variableName : String) : Boolean;
-		
-		/**
-		 * Return list of stored variables name
-		 */
+
 		function get variables() : Vector.<String>;
 	}
 }

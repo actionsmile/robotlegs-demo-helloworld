@@ -4,8 +4,8 @@
 // NOTICE: You are permitted to use, modify, and distribute this file
 // in accordance with the terms of the license agreement accompanying it.
 // ------------------------------------------------------------------------------
-package me.scriptor.mvc.model.impl {
-	import me.scriptor.mvc.model.api.IApplicationModel;
+package robotlegs.bender.demos.simpleapp.model.impl {
+	import robotlegs.bender.demos.simpleapp.model.api.IApplicationModel;
 
 	import flash.utils.Dictionary;
 
